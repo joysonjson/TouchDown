@@ -27,6 +27,21 @@ struct ContentView: View {
                         .frame(height:UIScreen.main.bounds.width/1.4)
                         
                         CategoryGridView()
+                        
+                        TitleView(title: "Helmets")
+                        
+                        LazyVGrid(columns: gridLayout,spacing: 15) {
+                            ForEach(products) { product in
+                                ProductItemView(product: product)
+                            }
+                            
+                        }
+                        .padding()
+                        
+                        TitleView(title: "Brands")
+                        
+                        BrandGridView()
+                        
                         FooterView()
                             .padding(.vertical,20)
                     }
