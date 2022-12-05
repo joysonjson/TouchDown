@@ -10,16 +10,23 @@ import SwiftUI
 struct TopPartDetailsView: View {
     @State private var isAnimating : Bool = false
     var body: some View {
-        HStack(alignment: .center, spacing: 6, content: {
+        HStack(alignment: .top, spacing: 6, content: {
             VStack(alignment: .leading, spacing: 6, content: {
                 Text("Price")
                     .fontWeight(.semibold)
+                    .offset(y: isAnimating ? 0 : -35)
+
                 
                 Text(sampleProduct.formattedPrice)
                     .font(.largeTitle)
                     .fontWeight(.black)
+                    .offset(y: isAnimating ? 0 : -35)
+
                 
             })
+            
+            .padding()
+
             Spacer()
             Image(sampleProduct.image)
                 .resizable()

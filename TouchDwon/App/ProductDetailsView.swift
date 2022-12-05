@@ -21,9 +21,33 @@ struct ProductDetailsView: View {
             HeaderDetailView()
                 .padding()
             TopPartDetailsView()
-                .padding()
+                .padding(.horizontal)
+                .zIndex(1)
             // MARK: - Details
-            Spacer()
+            
+          
+            
+            VStack(alignment: .center, spacing: 0) {
+                ScrollView(.vertical,showsIndicators: false) {
+                    RatingDetailsView()
+                        .padding(.top,-20)
+                        .padding(.bottom,10)
+                    
+                    Text(sampleProduct.description)
+                        .foregroundColor(.gray)
+                        .font(.system(.body,design: .rounded))
+                        .multilineTextAlignment(.leading)
+                }
+                Spacer()
+            }
+            .padding()
+            .background(
+                Color.white
+                    .clipShape(CustomShape())
+                    .padding(.top,-105)
+            )
+            
+          
         }
         .ignoresSafeArea()
         .background(
@@ -36,5 +60,6 @@ struct ProductDetailsView: View {
 struct ProductDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         ProductDetailsView()
+            .preferredColorScheme(.light)
     }
 }

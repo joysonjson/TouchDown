@@ -15,7 +15,9 @@ struct HeaderDetailView: View {
             Text(sampleProduct.name)
                 .font(.largeTitle)
                 .fontWeight(.black)
+                
         }
+        .foregroundColor(.white)
     }
 }
 
