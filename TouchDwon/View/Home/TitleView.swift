@@ -14,6 +14,7 @@ struct TitleView: View {
             Text(title)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
+                .foregroundColor(Color.black)
             Spacer()
         }
         .padding()
