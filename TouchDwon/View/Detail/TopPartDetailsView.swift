@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TopPartDetailsView: View {
+    @EnvironmentObject var shop: Shop
+
     @State private var isAnimating : Bool = false
     var body: some View {
         HStack(alignment: .top, spacing: 6, content: {
@@ -17,7 +19,7 @@ struct TopPartDetailsView: View {
                     .offset(y: isAnimating ? 0 : -35)
 
                 
-                Text(sampleProduct.formattedPrice)
+                Text(shop.selectedProduct?.formattedPrice ??  sampleProduct.formattedPrice)
                     .font(.largeTitle)
                     .fontWeight(.black)
                     .offset(y: isAnimating ? 0 : -35)
@@ -28,7 +30,7 @@ struct TopPartDetailsView: View {
             .padding()
 
             Spacer()
-            Image(sampleProduct.image)
+            Image(shop.selectedProduct?.image ?? sampleProduct.image)
                 .resizable()
                 .scaledToFit()
                 .offset(y: isAnimating ? 0 : -35)
@@ -44,6 +46,7 @@ struct TopPartDetailsView: View {
 struct TopPartDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         TopPartDetailsView()
+            .environmentObject(Shop())
             .previewLayout(.sizeThatFits)
             .padding()
     }

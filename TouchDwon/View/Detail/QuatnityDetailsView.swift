@@ -8,13 +8,44 @@
 import SwiftUI
 
 struct QuatnityDetailsView: View {
+    @State var counter : Int = 0
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Button {
+                if (counter > 0){
+                    counter -= 1
+                }
+            } label: {
+                Image(systemName: "minus.circle")
+         
+            }
+            Text("\(counter)")
+                .fontWeight(.semibold)
+                .frame(minWidth:36)
+            Button {
+                counter += 1
+
+            } label: {
+                Image(systemName: "plus.circle")
+            }
+
+
+
+            Spacer()
+            Image(systemName: "heart.circle")
+                .foregroundColor(.pink)
+
+        }
+        .font(.system(.title,design: .rounded))
+        .foregroundColor(.black)
+        .imageScale(.large)
     }
 }
 
 struct QuatnityDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         QuatnityDetailsView()
+            .previewLayout(.sizeThatFits)
+            .padding()
     }
 }
